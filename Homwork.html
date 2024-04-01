@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма ввода данных пользователя</title>
+</head>
+<body>
+    <form action="Homwork.html" method="post">
+        <h1>Введите данные о себе</h1>
+        <br>
+        <br>
+        <label for="lastName">Фамилия:</label>
+        <input type="text" id="lastName" name="lastName" required>
+        <br>
+        <br>
+        <label for="firstName">Имя:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        <br>
+        <br>
+        <label for="middleName">Отчество:</label>
+        <input type="text" id="middleName" name="middleName">
+        <br>
+        <br>
+        <label for="gender">Пол:</label>
+        <select id="gender" name="gender">
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
+        </select>
+        <br>
+        <br>
+        <label for="login">Логин:</label>
+        <input type="text" id="login" name="login" required>
+        <br>
+        <br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <br>
+        <label for="birthDate">Дата рождения:</label>
+        <input type="date" id="birthDate" name="birthDate">
+        <br>
+        <br>
+        <label for="about">О себе:</label>
+        <textarea id="about" name="about" rows="5" cols="30">"Мне 45 лет. На данный момент я являюсь студентом AIT-TR Berlin академии, которая специализируется на обучении (Fullstack) разработчиков и (Engeneers Tester) тестеровщиков. Актуальная тема занятий html"</textarea>
+        <br>
+        <br>
+        <input type="submit" value="Отправить">
+    </form>
+</body>
+</html>
