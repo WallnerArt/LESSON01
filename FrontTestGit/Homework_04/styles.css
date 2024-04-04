@@ -1,0 +1,31 @@
+/* styles.css */
+.user-card {
+  width: 400px;
+  height: 500px;
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+.user-card:nth-child(1) {
+  border-style: solid;
+}
+
+.user-card:nth-child(2) {
+  border-style: dashed;
+}
+
+.user-card:nth-child(3) {
+  border-style: dotted;
+}
+
+.user-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.user-card p {
+  font-size: 18px;
+  margin: 5px 0;
+}

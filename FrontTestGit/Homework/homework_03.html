@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ресторан</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<button
+class="btn btn-warning"
+onclick="changeBckg ('#3498db' )">
+Blue </button>
+
+<button class="btn btn-warning"
+onclick="changeBckg ('#e74c3c')">
+Red 
+</button>
+
+<script>
+function changeBckg (color) {
+document
+.body
+.style
+.backgroundColor = color;
+}
+</script>
+<body>
+    <header>
+        <h1>Ресторан</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Меню</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="menu">
+            <h2>Меню</h2>
+            <ul>
+                <li><a href="#">Блюда</a></li>
+                <li><a href="#">Напитки</a></li>
+                <li><a href="#">Десерты</a></li>
+            </ul>
+        </section>
+        <section class="contacts">
+            <h2>Контакты</h2>
+            <p>Адрес: <address>улица, дом номер, город, область, страна</address></p>
+            <p>Телефон: <a href="tel://1234567890">+12 345 67 890</a></p>
+            <p>Электронная почта: <a href="mailto:restoran@example.com">restoran@example.com</a></p>
+        </section>
+    </main>
+</body>
+</html>
