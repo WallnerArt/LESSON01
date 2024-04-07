@@ -1,0 +1,24 @@
+.parent{
+    padding: 20px;
+    background-color: brown;
+    height: 600px;
+
+}
+
+.item1{
+    height: 30px;
+    background-color: yellow ;
+    position: relative;
+    top: 20px;
+}
+
+.item2{
+    height: 30px;
+    background-color: blueviolet;
+}
+
+.item3{
+    height: 30px;
+    background-color: blue;
+}
+
