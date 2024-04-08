@@ -84,8 +84,8 @@ body {
 /* Наложение первого изображения */
 .block.block1 {
   position: absolute;
-  top: 30px;
-  left: 186px;
+  top: 40px;
+  left: 320px;
   z-index: 0;
 }
 /* Наложение второго изображения */
@@ -101,8 +101,8 @@ body {
 .block.block3 {
   position: absolute;
   bottom: 0;
-  top: 265px;
-  right: 165px;
+  top: 402px;
+  right: 300px;
   z-index: 2;
 }
 
