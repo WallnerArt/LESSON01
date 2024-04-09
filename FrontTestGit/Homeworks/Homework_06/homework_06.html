@@ -1,0 +1,99 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Seite</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Wallner-Art</h1>
+  </header>
+
+  <main>
+    <section class="products">
+      <h2>Shop</h2>
+      <div class="product-grid">
+      </div>
+    </section>
+
+    <aside class="user-info">
+      <h2>Benutzer Information</h2>
+      <br>
+      <p>Name: <span id="user-name">Eugen</span></p>
+      <p>Nachname: <span id="user-surname">Wallner</span></p>
+      <p>Email: <span id="user-email">eugenwallner.design@gmail.com</span></p>
+      <br>
+      <br>
+      <p>Willkommen bei Wallner-Art, Ihrem Ziel</p> 
+      <p>und Gold auf Leinwand.Tauchen Sie ein</p>
+      <p>in die Welt der kreativen Ausdrucksformen</p>
+      <p>und entdecken Sie die Schönheit und </p>
+      <p> Faszination unserer handgefertigten </p>
+      <p> Kunstwerke,die Ihr Zuhause mit Eleganz</p>
+      <p> und Stil bereichern.</p>
+    </aside>
+  </main>
+
+  <footer>
+    <p>© 2024 Wallner-Art Shop</p>
+  </footer>
+
+  <script>
+    const productData = [
+  {
+    name: "DUBAI SKYLINE",
+    description: "ACRYL BLACKLIGHT 5700 Euro",
+    price: 5700,
+    image: "./img/unnamed.jpg",
+  },
+  {
+    name: "Walk",
+    description: "ACRYL GOLD 3700 Euro",
+    price: 3700,
+    image: "./img/IMG_6490.jpg",
+  },
+  {
+    name: "ELEPHANT",
+    description: "ACRYL BLACKLIGHT 4700 Euro",
+    price: 4700,
+    image: "./img/photo_2024.jpg",
+  },
+  {
+    name: "GOLD PINEAPPLE",
+    description: "ACRYL 5900 Euro",
+    price: 5900,
+    image: "./img/IMG-0044.jpg",
+  },
+]; // Вставьте сюда данные о товарах
+    
+
+    const productGrid = document.querySelector('.product-grid');
+
+    for (const product of productData) {
+      const card = document.createElement('div');
+      card.classList.add('product-card');
+
+      const image = document.createElement('img');
+      // Установите путь к вашему изображению здесь
+      image.src = product.image;
+      image.alt = product.name;
+      card.appendChild(image);
+
+      const title = document.createElement('h3');
+      title.textContent = product.name;
+      card.appendChild(title);
+
+      const description = document.createElement('p');
+      description.textContent = product.description;
+      card.appendChild(description);
+
+      const button = document.createElement('button');
+      button.textContent = 'Kaufen';
+      card.appendChild(button);
+
+      productGrid.appendChild(card);
+    }
+  </script>
+</body>
+</html>
