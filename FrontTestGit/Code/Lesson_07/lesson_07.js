@@ -1,5 +1,5 @@
 //Вывод в консоль информации
-//console.log('hello world 333')
+console.log('hello world 333')
 
 //Создание Переменной
 let s ='hello';
