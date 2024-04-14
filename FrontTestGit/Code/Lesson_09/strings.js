@@ -66,8 +66,8 @@ let str1 = 'hello world';
 const personName = 'Robert';
 const age = 30;
 
-// шаблоныне строки (вставка переменных в строку)  - используем обратыне кавычки
-const message1 = `Сотурднику с именем ${personName} сейчас ${age} лет`;
+// шаблонные строки (вставка переменных в строку)  - используем обратные кoвычки
+const message1 = `Сотруднику с именем ${personName} сейчас ${age} лет`;
 // старый способ - конкатенация
 const message2 = 'Сотруднику с именем ' + personName + ' сейчас ' + age + 'лет';
 console.log(message1);

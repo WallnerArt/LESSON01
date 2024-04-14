@@ -8,6 +8,7 @@ const number1 = 10;
 const number2 = 20;
 const maxNumber = getMaxNumber(number1, number2);
 console.log(maxNumber); // Ожидаемый результат: 20
+console.log('====================================');
 
  // Задача 2:
 function first_n_chars(string, n) {
@@ -27,6 +28,7 @@ const result3 = getFirstNSymbols(str, 8);
 console.log(result1); // Ожидаемый результат: "EUGEN"
 console.log(result2); // Ожидаемый результат: "EUGEN, WAL "
 console.log(result3); // Ожидаемый результат: "EUGEN, W"
+console.log('====================================');
 
   function checkElementInArray(arr, element) {
     for (let i = 0; i < arr.length; i++) {
@@ -57,7 +59,7 @@ console.log(result); // Ожидаемый результат: true
     }
     return arr;
 }
-
+console.log('====================================');
 // Задача 4:
 const numbers = [5, 3, 8, 1, 2];
     console.log("Исходный массив:", numbers);
