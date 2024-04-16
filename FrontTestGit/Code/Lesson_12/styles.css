@@ -1,0 +1,13 @@
+body {
+    background-image: url('C: /Users/walln/Desktop/LESSON 1px /FrontTestGit/Code/Lesson_ 12px /img/images;.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.result-container {
+    border: 2px solid red;
+    padding: 10px;
+    text-align: center;
+}

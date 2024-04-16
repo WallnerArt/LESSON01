@@ -29,19 +29,21 @@ const isProgrammer = true;  // boolean
 const resultElement = document.getElementById('result');
 const input1 = document.getElementById('input1');
 const input2 = document.getElementById('input2');
+const input3 = document.getElementById('input3');
+const input4 = document.getElementById('input4');
 const submitBtn = document.getElementById('submit');
 
 
 console.log(input2.value);
 
 
-//console.log(resultElement.textContent);
-//resultElement.textContent = (42 - 2) / num;
+console.log(resultElement.textContent);
+resultElement.textContent = (42 - 2) / num;
 
 const sum = Number(input1.value) + Number(input2.value);
 resultElement.textContent = sum;
-//console.log(typeof sum);
+console.log(typeof sum);
 
-submitBtn.onclick = function () {
-    console.log('Hello Click');
-}
+//submitBtn.onclick = function () {
+    //console.log('resultElement.textContent');
+//}

@@ -1,0 +1,29 @@
+.calculator {
+    background-image: url('./img/images327.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#display {
+    width: 200px;
+    height: 40px;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+}
