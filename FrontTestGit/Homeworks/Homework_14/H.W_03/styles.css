@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    /* Устанавливаем фоновое изображение */
+    background-image: url('C:\\Users\\walln\\Desktop\\LESSON01\\FrontTestGit\\Homeworks\\Homework_14\\H.W_02\\img\\images7.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+  }
+  
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .product {
+    width: 200px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+  
+  .product img {
+    width: 100px;
+    height: 100px;
+    float: right;
+    margin-left: 20px;
+  }
+  
+  .product-info {
+    float: left;
+  }
+  

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru"> <!-- Указываем язык страницы -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Онлайн-магазин ноутбуков</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Поле ввода для фильтрации по цене -->
+    <input type="number" id="priceFilter" placeholder="Введите максимальную цену">
+    <!-- Кнопка для применения фильтра -->
+    <button onclick="filterProducts()">Фильтровать</button>
+    <!-- Контейнер для отображения товаров -->
+    <div class="products" id="products">
+      <!-- Товары будут добавлены динамически -->
+    </div>
+  </div>
+  <!-- Подключаем скрипт JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

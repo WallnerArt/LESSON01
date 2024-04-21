@@ -1,0 +1,53 @@
+body {
+    background-image: url("C:/Users/walln/Desktop/LESSON01/FrontTestGit/Homeworks/Homework_15/img/images66.jpg");
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+      }
+  
+  .todo-container {
+    max-width: 400px;
+    margin: 50px auto;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  input[type="text"] {
+    width: 70%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 8px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  .checkbox-label {
+    cursor: pointer;
+  }
+  
+  .checkbox-label input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  

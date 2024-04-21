@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('C:\\Users\\walln\\Desktop\\LESSON01\\FrontTestGit\\Homeworks\\Homework_14\\H.W_02\\img\\images7.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.product {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
