@@ -1,0 +1,51 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-image: url("./img/SanduhrXXX.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+h1 {
+    color: beige;
+}
+.container {
+    margin: 50px auto;
+    width: 300px;
+}
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn-start {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.time.pulse {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        color: #007bff;
+    }
+    50% {
+        color: #f00;
+    }
+    100% {
+        color: #007bff;
+    }
+}

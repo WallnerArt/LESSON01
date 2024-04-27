@@ -1,0 +1,17 @@
+body {
+    background-image: url("./img/images24.jpg");
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+ }
+
+.container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.267);
+        border-radius: 10px;
+        color: rgb(244, 235, 239);
+}

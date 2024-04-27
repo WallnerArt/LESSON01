@@ -1,0 +1,25 @@
+body {
+    background-image: url("./img/apple.webp");
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+  }
+  
+  .container {
+    margin-top: 50px;
+  }
+  
+  .car-image {
+    background-image: url("./img/images 222.jpg");
+    background-size: cover;
+    width: 200px;
+    height: 100px;
+  }
+  
+  .motorcycle-image {
+    background-image: url("./img/images.jpg");
+    background-size: cover;
+    width: 200px;
+    height: 100px;
+  }
+  
