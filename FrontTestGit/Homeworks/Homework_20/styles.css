@@ -1,0 +1,26 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-image: url("./img/SanduhrX.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: bisque;
+}
+
+.container {
+    margin: 50px auto;
+    width: 400px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+#numberInput {
+    width: 100px;
+}
+
+#result {
+    margin-top: 20px;
+}
