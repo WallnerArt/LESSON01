@@ -10,7 +10,7 @@ function delay(value) {
         }
 
         setTimeout(() => {
-            resolve(value * 2);
+            resolve(value * 5);
         }, 5000);
     });
 }
