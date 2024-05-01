@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Wallner-Technology</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .neon {
+            color: #0f0;
+            text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0, 0 0 80px #0f0;
+        }
+        .neon:hover {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0, 0 0 80px #0f0;
+            }
+            50% {
+                text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0, 0 0 80px #0f0, 0 0 90px #0f0;
+            }
+            100% {
+                text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0, 0 0 80px #0f0;
+            }
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #111;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .button {
+            background: #222;
+            color: #0f0;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background: #0f0;
+            color: #000;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>Wallner-Technology</strong></li>
+        </ul>
+        <ul>
+            <li><a href="#" class="neon">Startseite</a></li>
+            <li><a href="#" class="neon">Dienstleistungen</a></li>
+            <li><a href="#" class="neon" role="button">Kontakt</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <header class="neon" style="text-align: center; font-size: 24px; margin-bottom: 20px;">Willkommen bei Wallner-Technology! Dein Tor zur digitalen Zukunft.</header>
+        <div class="grid">
+            <section class="card">
+                <hgroup>
+                    <h2 class="neon">Webdesign</h2>
+                    <h3>Professionelles Design für deine Webpräsenz</h3>
+                </hgroup>
+                <p>Unsere Webdesign-Services sorgen dafür, dass dein Auftritt im Internet markant und einprägsam wird.</p>
+                <figure>
+                    <img src="https://via.placeholder.com/300" alt="Webdesign">
+                    <figcaption><a href="#" target="_blank" class="neon">Mehr erfahren</a></figcaption>
+                </figure>
+            </section>
+            <section class="card">
+                <hgroup>
+                    <h2 class="neon">App-Entwicklung</h2>
+                    <h3>Innovative Apps für mobile Geräte</h3>
+                </hgroup>
+                <p>Wir entwickeln benutzerfreundliche, effiziente Apps für iOS und Android.</p>
+                <figure>
+                    <img src="https://via.placeholder.com/300" alt="App-Entwicklung">
+                    <figcaption><a href="#" target="_blank" class="neon">Mehr erfahren</a></figcaption>
+                </figure>
+            </section>
+            <!-- Add more sections as needed -->
+        </div>
+        <section aria-label="Kontaktformular">
+            <div class="container">
+                <article>
+                    <hgroup>
+                        <h2 class="neon">Kontaktiere uns</h2>
+                        <h3>Lass uns wissen, wie wir dir helfen können</h3>
+                    </hgroup>
+                    <form class="grid">
+                        <input type="text" id="name" name="name" placeholder="Dein Name" aria-label="Dein Name" required>
+                        <input type="email" id="email" name="email" placeholder="Deine E-Mail-Adresse" aria-label="Deine E-Mail-Adresse" required>
+                        <button type="submit" class="button neon" onclick="event.preventDefault()">Senden</button>
+                    </form>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="container">
+        <small class="neon">© 2023 Wallner-Technology • <a href="mailto:web3logo@gmail.com">web3logo@gmail.com</a></small>
+    </footer>
+</body>
+</html>
