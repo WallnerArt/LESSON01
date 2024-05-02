@@ -1,0 +1,64 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background: url('./Img/Wolkig.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+  }
+  
+  .input-wrapper {
+    margin: 20px;
+    text-align: center;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 2px solid cyan;
+    transition: border-color 1.3s;
+  }
+  
+  input[type="text"]:focus {
+    border-color: cyan;
+    animation: pulse 3.5s infinite;
+  }
+  button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    animation: neon 1.5s infinite alternate;
+  }
+  
+  @keyframes neon {
+    from {
+      box-shadow: 0 0 5px rgba(0, 255, 255, 0.8), 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8);
+      color: cyan;
+    }
+    to {
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 1);
+      color: white;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(0, 255, 255, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(0, 255, 255, 0);
+    }
+  }
