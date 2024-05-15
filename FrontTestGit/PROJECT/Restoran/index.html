@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ER Диаграмма Ресторана</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ER Диаграмма Ресторана</h1>
+        <div class="mermaid">
+            graph TD;
+                Customers[Клиенты]
+                Employees[Сотрудники]
+                MenuItems[Пункты меню]
+                Orders[Заказы]
+                OrderItems[Элементы заказа]
+
+                Customers ---|PK customer_id| Orders
+                Employees ---|PK employee_id| Orders
+                MenuItems ---|PK menu_item_id| OrderItems
+                Orders ---|PK order_id| OrderItems
+
+                Orders --> |FK customer_id| Customers
+                Orders --> |FK employee_id| Employees
+                OrderItems --> |FK order_id| Orders
+                OrderItems --> |FK menu_item_id| MenuItems
+        </div>
+    </div>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>
