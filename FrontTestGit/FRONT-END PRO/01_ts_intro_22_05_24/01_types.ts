@@ -1,3 +1,4 @@
+// BOOLEAN
 let isLoading: boolean;
 isLoading = true;
 isLoading = false;
@@ -7,6 +8,7 @@ isLoading = false;
 
 let num: number | string = 42;  // Логическое ИЛИ
 num = 'hello';
+
 
 
 // STRING
@@ -38,5 +40,31 @@ if (typeof(primes7[0]) == "object") {
     primes7[0].age = 17;
 }
 
+// OBJECTS & INTERFACES
 
-
+interface IObj {
+    name: string;
+    age: number;
+    address?: IAddress;
+  }
+  interface IAddress {
+    city: string;
+    street: string;
+    house: number;
+  }
+  const obj2: IObj = {
+    age: 58,
+    name: 'Tigran'
+  };
+  // если ключа нет, то js создаёт данный ключ со значением undefined
+  // console.log(obj2.address);
+  const obj: IObj = {
+    name: "John",
+    age: 35,
+    address: {
+      city: "NY",
+      street: "Roosevelt",
+      house: 111,
+    },
+  
+  }
