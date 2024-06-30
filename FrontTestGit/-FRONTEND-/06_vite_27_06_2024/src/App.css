@@ -1,0 +1,29 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .task-completed {
+    text-decoration: line-through;
+    color: #6c757d;
+  }
+  
+  .card {
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .card-body textarea {
+    width: 100%;
+    resize: none;
+  }
+  
+  .btn {
+    margin-left: 5px;
+  }
