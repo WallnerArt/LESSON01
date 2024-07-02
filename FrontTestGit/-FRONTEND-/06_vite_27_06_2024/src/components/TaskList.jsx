@@ -1,59 +1,58 @@
-import { useEffect, useState } from "react";
-// import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Task from "./Task";
 
 const TaskList = () => {
-  const [tasks, setTasks] = useState([
-    {
-      title: "Task 1",
-      isCompleted: false,
-      updatedAt: new Date().toISOString(),
-    },
-    {
-      title: "Task 2",
-      isCompleted: false,
-      updatedAt: new Date().toISOString(),
-    },
-    {
-      title: "Task 3",
-      isCompleted: false,
-      updatedAt: new Date().toISOString(),
-    },
-  ]);
-  const [newTask, setNewTask] = useState({
-    title: "",
-    isCompleted: false,
-  });
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState({ title: "", isCompleted: false });
 
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        // const data = (await axios.get("https://jsonplaceholder.typicode.com/todos")).data;
-        const response = await fetch("https://jsonplaceholder.typicode.com/todos");
-        const data = await response.json();
-        console.log(data);
+        // Фиктивные данные на русском
+        const data = [
+          { title: "Сделать стирку", isCompleted: false },
+          { title: "Написать блог", isCompleted: false },
+          { title: "Прочитать книгу", isCompleted: false },
+          { title: "Заняться спортом", isCompleted: false },
+          { title: "Приготовить ужин", isCompleted: false },
+          { title: "Позвонить другу", isCompleted: false },
+          { title: "Спланировать поездку", isCompleted: false },
+          { title: "Купить продукты", isCompleted: false },
+          { title: "Убраться в доме", isCompleted: false },
+          { title: "Завершить проект", isCompleted: false },
+        ];
+        
+        // Преобразование данных и добавление updatedAt
+        const tasksWithUpdatedAt = data.map(task => ({
+          ...task,
+          updatedAt: new Date().toISOString(),
+        }));
+
+        setTasks(tasksWithUpdatedAt);
+        console.log(tasksWithUpdatedAt);
       } catch (error) {
         console.log(error);
       }
     };
-
-    fetchTodos()
+    fetchTodos();
   }, []);
 
   const addTask = () => {
     if (newTask.title.trim()) {
       const tasksCopy = [...tasks];
       tasksCopy.push({ ...newTask, updatedAt: new Date().toISOString() });
-      setTasks(tasksCopy);
+      setTasks(tasksCopy.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)));
     }
   };
 
-  const deleteTask = (i) => {
-    setTasks(tasks.filter((_, index) => i !== index));
+  const deleteTask = (index) => {
+    const tasksCopy = tasks.filter((_, i) => i !== index);
+    setTasks(tasksCopy.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)));
   };
 
-  const editTask = (i, updatedTask) => {
-    setTasks(tasks.map((e, index) => (index === i ? updatedTask : e)));
+  const editTask = (index, updatedTask) => {
+    const tasksCopy = tasks.map((task, i) => (i === index ? updatedTask : task));
+    setTasks(tasksCopy.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)));
   };
 
   return (
@@ -63,15 +62,11 @@ const TaskList = () => {
         <input
           type="text"
           value={newTask.title}
-          onChange={(e) =>
-            setNewTask({ title: e.target.value, isCompleted: false })
-          }
+          onChange={(e) => setNewTask({ title: e.target.value, isCompleted: false })}
           className="form-control"
           placeholder="New Task"
         />
-        <button onClick={addTask} className="btn btn-primary">
-          Add Task
-        </button>
+        <button onClick={addTask} className="btn btn-primary">Add Task</button>
       </div>
       <div>
         {tasks.map((task, index) => (
