@@ -1,0 +1,78 @@
+body {
+  background-image: url('./img/Project_3.webp'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff75;
+  font-family: Arial, sans-serif;
+}
+
+.neon {
+  color: #0f0;
+  text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0, 0 0 80px #0f0;
+}
+
+.neon:hover {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0, 0 0 80px #0f0;
+  }
+  50% {
+    text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0, 0 0 80px #0f0, 0 0 90px #0f0;
+  }
+  100% {
+    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0, 0 0 80px #0f0;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.list-group-item {
+  background: rgba(17, 17, 17, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.list-group-item:hover {
+  transform: translateY(-10px);
+}
+
+.button {
+  background: rgba(34, 34, 34, 0.8);
+  color: #0f0;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background: #0f0;
+  color: #000;
+}
+
+input {
+  background: rgba(255, 255, 255, 0.288);
+  border: none;
+  padding: 10px;
+  color: #000;
+  border-radius: 5px;
+}
+
+input::placeholder {
+  color: #000;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
