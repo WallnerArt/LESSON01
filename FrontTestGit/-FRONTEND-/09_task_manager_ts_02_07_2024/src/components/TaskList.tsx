@@ -63,7 +63,7 @@ const TaskList: React.FC = () => {
 
   return (
     <div className="container mt-4">
-      <h1 className="mb-4 text-center">Task Manager App</h1>
+      <h1 className="mb-4 text-center neon">Task Manager App</h1>
       <div className="input-group mb-3">
         <input
           type="text"
