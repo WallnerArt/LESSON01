@@ -1,21 +1,44 @@
-import React from 'react';
-import { UserType } from './UserList';
+import { FC } from "react";
+import { IUser } from "./UserList";
 
-interface UserDetailsProps {
-  user: UserType;
+interface IProps extends IUser {
+    changeIsDetails: (userDetails: IUser | null) => void;
 }
 
-const UserDetails: React.FC<UserDetailsProps> = ({ user }) => {
+const UserDetails: FC<IProps> = ({
+  name: userName,
+  company: { name: companyName },
+  phone,
+  email,
+  address,
+  website,
+  changeIsDetails
+}) => {
+    const {street, city, geo, suite, zipcode} = address as {
+        street: string;
+        suite: string;
+        city: string;
+        zipcode: string;
+        geo: {
+            lat: string;
+            lng: string;
+        };
+    }
   return (
     <div className="container mt-4">
-      <h2>Информация о пользователе</h2>
-      <p><strong>ID:</strong> {user.id}</p>
-      <p><strong>Имя:</strong> {user.name}</p>
-      <p><strong>Телефон:</strong> {user.phone}</p>
-      <p><strong>Электронная почта:</strong> {user.email}</p>
-      <p><strong>Веб-сайт:</strong> {user.website}</p>
-      <p><strong>Компания:</strong> {user.company.name}</p>
-      <p><strong>Адрес:</strong> {`${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}, ${user.address.geo.lat}, ${user.address.geo.lng}`}</p>
+        <h1 className="text-center">{userName}</h1>
+        <p><strong>Company:</strong> {companyName}</p>
+        <p><strong>Phone:</strong> {phone}</p>
+        <p><strong>Email:</strong> {email}</p>
+        <p><strong>Website:</strong> {website}</p>
+        <ul>
+            <li><strong>Street:</strong> {street}</li>
+            <li><strong>Suite:</strong> {suite}</li>
+            <li><strong>City:</strong> {city}</li>
+            <li><strong>Zipcode:</strong> {zipcode}</li>
+            <li><strong>Geolocation:</strong> {geo.lat}(latitude), {geo.lng}(longitude) </li>
+        </ul>
+        <button onClick={() => changeIsDetails(null)}>Close</button>
     </div>
   );
 };

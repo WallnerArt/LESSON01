@@ -1,142 +1,117 @@
-import React, { Component } from 'react';
-import { UserType } from './UserList';
+import { ChangeEvent, Component } from "react";
+import { IUser } from "./UserList";
+import style from "../App.css";
+import { NavLink } from "react-router-dom";
 
 interface IProps {
-  user: UserType;
+  user: IUser;
   deleteUser: () => void;
-  onInputChange: (e: React.ChangeEvent<HTMLInputElement>, field: string) => void;
-  isEditing: boolean;
-  onSaveEdit: (user: UserType) => void;
+  editUser: (user: IUser) => void;
+  changeIsDetails: (userDetails: IUser | null) => void;
+  setUser: (user: IUser) => void;
+  setChange: React.Dispatch<React.SetStateAction<(() => void) | null>>; // Изменение здесь
 }
 
 interface IState {
   isEdit: boolean;
   name: string;
-  email: string;
-  phone: string;
-  website: string;
   company: string;
-  address: string;
+  phone: string;
 }
 
 export default class User extends Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = {
-      isEdit: props.isEditing,
+      isEdit: false,
       name: props.user.name,
-      email: props.user.email,
-      phone: props.user.phone,
-      website: props.user.website,
       company: props.user.company.name,
-      address: `${props.user.address.street}, ${props.user.address.suite}, ${props.user.address.city}, ${props.user.address.zipcode}, ${props.user.address.geo.lat}, ${props.user.address.geo.lng}`,
+      phone: props.user.phone,
     };
   }
 
-  handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
-    const value = e.target.value;
-    const [mainField, subField] = field.split('.');
-    if (subField) {
-      this.setState((prevState) => ({
-        ...prevState,
-        [mainField]: {
-          ...prevState[mainField],
-          [subField]: value,
-        },
-      }));
-    } else {
-      this.setState({ [field]: value } as Pick<IState, keyof IState>);
-    }
+  toggleEdit = () => {
+    this.setState((prevState) => ({ ...prevState, isEdit: !prevState.isEdit }));
   };
 
-  handleSaveEdit = () => {
-    const updatedUser: UserType = {
-      ...this.props.user,
-      name: this.state.name,
-      email: this.state.email,
-      phone: this.state.phone,
-      website: this.state.website,
-      company: { ...this.props.user.company, name: this.state.company },
-      address: {
-        ...this.props.user.address,
-        street: this.state.address.split(', ')[0],
-        suite: this.state.address.split(', ')[1],
-        city: this.state.address.split(', ')[2],
-        zipcode: this.state.address.split(', ')[3],
-        geo: {
-          lat: this.state.address.split(', ')[4],
-          lng: this.state.address.split(', ')[5],
-        },
-      },
+  handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    this.setState((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  saveUser = () => {
+    const { company, name, phone } = this.state;
+    const { editUser, user } = this.props;
+
+    const updatedUser = {
+      ...user,
+      name,
+      company: { name: company },
+      phone,
     };
-    this.props.onSaveEdit(updatedUser);
-    this.setState({ isEdit: false });
+
+    editUser(updatedUser);
+    this.toggleEdit();
   };
 
   render() {
-    const { user, deleteUser } = this.props;
-    const { isEdit, name, email, phone, website, company, address } = this.state;
-
     return (
-      <li className="list-group-item neon">
-        {isEdit ? (
-          <div>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => this.handleInputChange(e, 'name')}
-              className="form-control mb-2"
-            />
-            <input
-              type="text"
-              value={email}
-              onChange={(e) => this.handleInputChange(e, 'email')}
-              className="form-control mb-2"
-            />
-            <input
-              type="text"
-              value={phone}
-              onChange={(e) => this.handleInputChange(e, 'phone')}
-              className="form-control mb-2"
-            />
-            <input
-              type="text"
-              value={website}
-              onChange={(e) => this.handleInputChange(e, 'website')}
-              className="form-control mb-2"
-            />
-            <input
-              type="text"
-              value={company}
-              onChange={(e) => this.handleInputChange(e, 'company')}
-              className="form-control mb-2"
-            />
-            <input
-              type="text"
-              value={address}
-              onChange={(e) => this.handleInputChange(e, 'address')}
-              className="form-control mb-2"
-            />
-            <button onClick={this.handleSaveEdit} className="btn btn-success btn-sm me-2">
-              Сохранять
-            </button>
-          </div>
-        ) : (
-          <div>
-            <p><strong>ID:</strong> {user.id}</p>
-            <p><strong>Имя:</strong> {user.name}</p>
-            <p><strong>Телефон:</strong> {user.phone}</p>
-            <p><strong>Электронная почта:</strong> {user.email}</p>
-            <p><strong>Веб-сайт:</strong> {user.website}</p>
-            <p><strong>Компания:</strong> {user.company.name}</p>
-            <p><strong>Адрес:</strong> {`${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}, ${user.address.geo.lat}, ${user.address.geo.lng}`}</p>
-            <button onClick={() => this.setState({ isEdit: true })} className="btn btn-warning btn-sm me-2">
-              Редактировать
-            </button>
-            <button onClick={deleteUser} className="btn btn-danger btn-sm">Удалить</button>
-          </div>
-        )}
-      </li>
+      <div className="card mb-3" style={{ boxShadow: "0 4px 8px rgba(0,0,0,0.1)" }}>
+        <div className="card-body">
+          {this.state.isEdit ? (
+            <div>
+              <input
+                className="form-control mb-2"
+                name="name"
+                value={this.state.name}
+                onChange={this.handleChange}
+              />
+              <input
+                className="form-control mb-2"
+                name="company"
+                value={this.state.company}
+                onChange={this.handleChange}
+              />
+              <input
+                className="form-control mb-2"
+                name="phone"
+                value={this.state.phone}
+                onChange={this.handleChange}
+              />
+              <button onClick={this.saveUser} className="btn btn-success btn-sm me-2">
+                Save
+              </button>
+            </div>
+          ) : (
+            <div className="d-flex align-items-center">
+              <NavLink
+                to='/users/details'
+                onClick={() => {
+                  this.props.setChange(() => () => this.props.changeIsDetails(this.props.user));
+                  this.props.setUser(this.props.user);
+                  this.props.changeIsDetails(this.props.user);
+                }}
+              >
+                <div style={{ flexGrow: 1 }}>
+                  <h5 className="card-title">{this.props.user.name}</h5>
+                  <h6 className="card-subtitle mb-2 text-muted">
+                    {this.props.user.company.name}
+                  </h6>
+                  <p className={`card-text ${style.color}`}>
+                    {this.props.user.phone}
+                  </p>
+                </div>
+              </NavLink>
+              <button onClick={this.toggleEdit} className="btn btn-warning btn-sm me-2">
+                Edit
+              </button>
+              <button onClick={this.props.deleteUser} className="btn btn-danger btn-sm">
+                Del
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
     );
   }
 }
