@@ -1,16 +1,15 @@
-import { combineReducers, legacy_createStore } from "redux";
-import counterReducer from "./counterReducer";
-import sandwichReducer from "./sandwichReducer";
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from '../reduxRTK/counterSlice';
+import sandwichReducer from '../reduxRTK/sandwichSlice';
 
-// 3. а) Создание хранилища (Store) с информацией о способах изменения содержимого хранилища
-const store = legacy_createStore(combineReducers({
+const store = configureStore({
+  reducer: {
     counter: counterReducer,
-    sandwich: sandwichReducer
-}))
+    sandwich: sandwichReducer,
+  },
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 export default store;
-
-// b) Универсальная типизация всего, что хранится в State
-export type RootState = ReturnType<typeof store.getState>;
-// и метода, с помощью которого необходимо менять значение State
-export type AppDispatch = typeof store.dispatch;

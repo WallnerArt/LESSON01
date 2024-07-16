@@ -1,23 +1,32 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface InitialCounterStateRTK {
-    value: number;
+interface CounterState {
+  value: number;
 }
 
-const initialState: InitialCounterStateRTK = {
-    value: 0
-}
+const initialState: CounterState = {
+  value: 0,
+};
 
 const counterSlice = createSlice({
-    name: 'counter',
-    initialState,
-    reducers: {
-        change(state, action: PayloadAction<number>) {
-            state.value += action.payload;
-        }
-    }
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment(state) {
+      state.value += 1;
+    },
+    decrement(state) {
+      state.value -= 1;
+    },
+    incrementByAmount(state, action: PayloadAction<number>) {
+      state.value += action.payload;
+    },
+    decrementByAmount(state, action: PayloadAction<number>) {
+      state.value -= action.payload;
+    },
+  },
 });
 
-export const { change } = counterSlice.actions
+export const { increment, decrement, incrementByAmount, decrementByAmount } = counterSlice.actions;
 
-export default counterSlice.reducer
+export default counterSlice.reducer;
