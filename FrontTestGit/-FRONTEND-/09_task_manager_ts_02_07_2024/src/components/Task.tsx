@@ -1,29 +1,34 @@
 import React, { FC, RefObject, useRef } from "react";
-import { ITask } from "./TaskList";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../redux/store";
+import { deleteTask, editTask, ITask } from "../redux/taskSlice";
 
 interface IProps {
   task: ITask;
-  deleteTask: () => void;
-  editTask: (i: number, updatedTask: ITask) => void;
   index: number;
 }
 
 const Task: FC<IProps> = ({
   task: { title, isCompleted, updatedAt },
-  deleteTask,
-  editTask,
   index,
 }) => {
   const [isEdit, setIsEdit] = React.useState(false);
-  const textRef: RefObject<HTMLTextAreaElement> = useRef(null); // { current: document.getElementById() }
+  const textRef: RefObject<HTMLTextAreaElement> = useRef(null); // { current: document.getElementById() }'
+
+  const dispatch: AppDispatch = useDispatch();
+
+  const handleDeleteTask = () => {
+    dispatch(deleteTask(index));
+  };
 
   const handleClickSave = () => {
     if (textRef.current) {
-      editTask(index, {
+      dispatch(editTask({
+        id: index,
         title: textRef.current.value,
         isCompleted,
-        updatedAt: new Date().toISOString(),
-      });
+        updatedAt: new Date()
+      }));
       setIsEdit(false);
     }
   };
@@ -51,8 +56,9 @@ const Task: FC<IProps> = ({
         ) : (
           <div className="d-flex align-items-center">
             <p
-              className={`mb-0 ${isCompleted ? "text-decoration-line-through text-muted" : ""
-                }`}
+              className={`mb-0 ${
+                isCompleted ? "text-decoration-line-through text-muted" : ""
+              }`}
               style={{ flexGrow: 1 }}
             >
               {title}
@@ -63,10 +69,11 @@ const Task: FC<IProps> = ({
             <input
               checked={isCompleted}
               onChange={() =>
-                editTask(index, {
+                editTask({
+                  id: index,
                   title,
                   isCompleted: !isCompleted,
-                  updatedAt: new Date().toISOString(),
+                  updatedAt: new Date(),
                 })
               }
               type="checkbox"
@@ -78,7 +85,7 @@ const Task: FC<IProps> = ({
             >
               Edit
             </button>
-            <button onClick={deleteTask} className="btn btn-danger btn-sm">
+            <button onClick={handleDeleteTask} className="btn btn-danger btn-sm">
               Del
             </button>
           </div>
@@ -89,3 +96,4 @@ const Task: FC<IProps> = ({
 };
 
 export default Task;
+

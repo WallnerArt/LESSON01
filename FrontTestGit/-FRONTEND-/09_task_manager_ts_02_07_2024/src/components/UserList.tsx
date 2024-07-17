@@ -3,6 +3,27 @@ import { ChangeEvent, Component, ReactNode } from "react";
 import User from "./User";
 import UserDetails from "./UserDetails";
 
+// const obj: Omit<IUser, 'address', 'website'>
+
+// export interface IUser {
+//   id: number;
+//   name: string;
+//   company: { name: string };
+//   phone: string;
+//   email: string;
+//   website: string;
+//   address: {
+//     street: string;
+//     suite: string;
+//     city: string;
+//     zipcode: string;
+//     geo: {
+//       lat: string;
+//       lng: string;
+//     };
+//   };
+// }
+
 export interface IUser {
   id: number;
   name: string;

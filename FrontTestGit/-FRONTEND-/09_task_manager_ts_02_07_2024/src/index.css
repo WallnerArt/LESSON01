@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('../src/img/Project_3.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: #0f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  #root {
+    text-align: center;
+  }
+
+  .input-container {
+    margin: 20px;
+  }
+
+  input {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #0f0;
+    background: #000;
+    color: #0f0;
+    text-align: center;
+  }
+
+  input:focus {
+    animation: pulse 1s infinite;
+  }
+
+  button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: 2px solid #0f0;
+    background: #000;
+    color: #0f0;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #0f0;
+    color: #000;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 10px #0f0;
+    }
+    50% {
+      box-shadow: 0 0 20px #0f0;
+    }
+    100% {
+      box-shadow: 0 0 10px #0f0;
+    }
+  }

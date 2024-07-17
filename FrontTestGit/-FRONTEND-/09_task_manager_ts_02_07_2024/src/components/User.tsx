@@ -1,6 +1,6 @@
 import { ChangeEvent, Component } from "react";
 import { IUser } from "./UserList";
-import style from "../App.css";
+import style from "../styles/User.module.css";
 import { NavLink } from "react-router-dom";
 
 interface IProps {
@@ -85,7 +85,8 @@ export default class User extends Component<IProps, IState> {
           ) : (
             <div className="d-flex align-items-center">
               <NavLink
-                to='/users/details'
+                className='className="d-flex align-items-center flex-grow-1 text-decoration-none'
+                to={`/users/${this.props.user.id}`}
                 onClick={() => {
                   this.props.setChange(() => () => this.props.changeIsDetails(this.props.user));
                   this.props.setUser(this.props.user);
