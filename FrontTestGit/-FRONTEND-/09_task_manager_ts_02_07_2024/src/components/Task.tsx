@@ -96,4 +96,3 @@ const Task: FC<IProps> = ({
 };
 
 export default Task;
-
